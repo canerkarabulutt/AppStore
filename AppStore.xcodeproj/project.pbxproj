@@ -23,8 +23,8 @@
 		2BC393D62B97449B0011AB17 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC393D52B97449B0011AB17 /* APICaller.swift */; };
 		2BC393D82B9749EA0011AB17 /* AppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC393D72B9749EA0011AB17 /* AppsViewModel.swift */; };
 		2BC393DE2B97A6870011AB17 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2BC393DD2B97A6870011AB17 /* Kingfisher */; };
-		2BC393E72B9885D10011AB17 /* AppsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC393E62B9885D10011AB17 /* AppsDetailViewController.swift */; };
 		2BC393E92B9885E80011AB17 /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC393E82B9885E80011AB17 /* AppDetailCell.swift */; };
+		2BC393EB2B98875E0011AB17 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC393EA2B98875E0011AB17 /* AppDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +45,8 @@
 		2BC393D32B9740EE0011AB17 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		2BC393D52B97449B0011AB17 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		2BC393D72B9749EA0011AB17 /* AppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewModel.swift; sourceTree = "<group>"; };
-		2BC393E62B9885D10011AB17 /* AppsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppsDetailViewController.swift; path = ../../../../../.Trash/AppStore/AppStore/ViewControllers/AppsDetailViewController.swift; sourceTree = "<group>"; };
 		2BC393E82B9885E80011AB17 /* AppDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
+		2BC393EA2B98875E0011AB17 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				2BC3401F2B9717A100571A64 /* AppsViewController.swift */,
-				2BC393E62B9885D10011AB17 /* AppsDetailViewController.swift */,
 				2BC3401B2B97109300571A64 /* SearchViewController.swift */,
 				2BC3401D2B9711FE00571A64 /* SettingsViewController.swift */,
 				2BC340192B97107000571A64 /* MainTabBarViewController.swift */,
+				2BC393EA2B98875E0011AB17 /* AppDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -257,10 +257,10 @@
 				2BC393D42B9740EE0011AB17 /* AppModel.swift in Sources */,
 				2BC3401C2B97109300571A64 /* SearchViewController.swift in Sources */,
 				2BC3401A2B97107000571A64 /* MainTabBarViewController.swift in Sources */,
+				2BC393EB2B98875E0011AB17 /* AppDetailViewController.swift in Sources */,
 				2BC340202B9717A100571A64 /* AppsViewController.swift in Sources */,
 				2BC393CC2B972DE70011AB17 /* TopPaidCellView.swift in Sources */,
 				2BC393D62B97449B0011AB17 /* APICaller.swift in Sources */,
-				2BC393E72B9885D10011AB17 /* AppsDetailViewController.swift in Sources */,
 				2BC393E92B9885E80011AB17 /* AppDetailCell.swift in Sources */,
 				2BC33FFF2B970DD200571A64 /* AppDelegate.swift in Sources */,
 				2BC340012B970DD200571A64 /* SceneDelegate.swift in Sources */,
