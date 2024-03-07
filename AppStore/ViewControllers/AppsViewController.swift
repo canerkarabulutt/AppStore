@@ -126,6 +126,22 @@ extension AppsViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return cell
         }
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let sectionIndex = indexPath.section
+        let section = sections[sectionIndex]
+        
+        switch section {
+            case .topFreeSection(let viewModels):
+                let viewModel = viewModels[indexPath.row]
+                let detailVC = AppDetailViewController()
+                navigationController?.pushViewController(detailVC, animated: true)
+            case .topPaidSection(let viewModels):
+                let viewModel = viewModels[indexPath.row]
+                let detailVC = AppDetailViewController()
+                navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderViewCell.cellIdentifier, for: indexPath) as? HeaderViewCell, kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
         let section = indexPath.section
