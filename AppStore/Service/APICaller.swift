@@ -70,7 +70,6 @@ class APICaller {
             completion(.failure(APIError.failedToGetData))
             return
         }
-        
         createRequest(with: finalURL, type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
@@ -87,7 +86,109 @@ class APICaller {
             task.resume()
         }
     }
-
+    //MARK: - API App Details Caller
+    public func getAppDetails(with id: String, completion: @escaping (Result<AppDetailModel, Error>) -> Void) {
+        let queryParameters = ["id": id]
+        guard let baseURL = URL(string: Constants.baseURL) else {
+            completion(.failure(APIError.failedToGetData))
+            return
+        }
+        let lookupURL = baseURL.appendingPathComponent("lookup")
+        guard var components = URLComponents(url: lookupURL, resolvingAgainstBaseURL: true) else {
+            completion(.failure(APIError.failedToGetData))
+            return
+        }
+        components.queryItems = queryParameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+        guard let finalURL = components.url else {
+            completion(.failure(APIError.failedToGetData))
+            return
+        }
+        createRequest(with: finalURL, type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(AppDetailModel.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    //MARK: - API App Screenshots Caller
+    public func getScreenshots(with id: String, completion: @escaping (Result<AppDetailModel, Error>) -> Void) {
+        let queryParameters = ["id": id]
+        guard let baseURL = URL(string: Constants.baseURL) else {
+            completion(.failure(APIError.failedToGetData))
+            return
+        }
+        let lookupURL = baseURL.appendingPathComponent("lookup")
+        guard var components = URLComponents(url: lookupURL, resolvingAgainstBaseURL: true) else {
+            completion(.failure(APIError.failedToGetData))
+            return
+        }
+        components.queryItems = queryParameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+        guard let finalURL = components.url else {
+            completion(.failure(APIError.failedToGetData))
+            return
+        }
+        createRequest(with: finalURL, type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(AppDetailModel.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    //MARK: - API App Ratings Caller
+    public func getRatingData(with id: String, completion: @escaping (Result<RatingModel, Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseURL + "/rss/customerreviews/page=1/id=\(id)/sortbt=mostrecent/json?=en&cc=us"), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(RatingModel.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    //MARK: - API Header Caller
+    public func getHeaderData(completion: @escaping (Result<[HeaderModel], Error>) -> Void) {
+        createRequest(with: URL(string: "https://api.letsbuildthatapp.com/appstore/social"), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode([HeaderModel].self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
     enum HTTPMethod : String {
         case GET
         case POST

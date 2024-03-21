@@ -57,7 +57,7 @@ extension TodayCollectionViewCell {
         contentView.backgroundColor = .systemBackground
         stackView = UIStackView(arrangedSubviews: [featureLabel, titleLabel])
         stackView.axis = .vertical
-        stackView.spacing = 12
+        stackView.spacing = 4
         stackView.translatesAutoresizingMaskIntoConstraints = false
         todayImageView.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -71,9 +71,9 @@ extension TodayCollectionViewCell {
             todayImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             todayImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
     private func configure() {

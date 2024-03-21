@@ -22,4 +22,3 @@ struct AppResults: Codable {
     let name: String
     let artworkUrl100: URL
 }
-

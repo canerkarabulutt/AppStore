@@ -11,4 +11,5 @@ struct AppsViewModel {
     let appName: String
     let firmName: String
     let artworkUrl: URL
+    let id: String?
 }

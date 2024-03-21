@@ -23,12 +23,12 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "App Name"
         label.font = .systemFont(ofSize: 24, weight: .bold)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         return label
     }()
     private let newsLabel: UILabel = {
         let label = UILabel()
-        label.text = "What's New?"
+        label.text = "What's New"
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         label.heightAnchor.constraint(equalToConstant: 30).isActive = true
         label.numberOfLines = 0
@@ -66,19 +66,14 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        appNameLabel.sizeToFit()
-        newsLabel.sizeToFit()
-        appIcon.sizeToFit()
         infoLabel.sizeToFit()
-        previewLabel.sizeToFit()
-        getButton.sizeToFit()
-        
-        appIcon.frame = CGRect(x: 2, y: 4, width: (contentView.height) / 6, height: (contentView.height) / 6)
-        appNameLabel.frame = CGRect(x: appIcon.right+10, y: 4, width: 300, height: 100)
+
+        appIcon.frame = CGRect(x: 2, y: 4, width: (contentView.height) / 2.4, height: (contentView.height) / 2.4)
+        appNameLabel.frame = CGRect(x: appIcon.right+10, y: 4, width: contentView.width - appIcon.right-10, height: 100)
         getButton.frame = CGRect(x: appIcon.right+10, y: appNameLabel.bottom+5, width: 90, height: 36)
-        newsLabel.frame = CGRect(x: 8, y: appIcon.bottom+10, width: 200, height: 30)
-        infoLabel.frame = CGRect(x: 4, y: newsLabel.bottom+8, width: contentView.width, height: infoLabel.frame.height)
-        previewLabel.frame = CGRect(x: 8, y: infoLabel.bottom+10, width: 200, height: 30)
+        newsLabel.frame = CGRect(x: 8, y: appIcon.bottom+8, width: 200, height: 30)
+        infoLabel.frame = CGRect(x: 4, y: newsLabel.bottom+5, width: contentView.width-2, height: contentView.height/4)
+        previewLabel.frame = CGRect(x: 8, y: infoLabel.bottom+8, width: 200, height: 30)
     }
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -91,7 +86,7 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
 //MARK: - Helpers
 extension AppDetailCollectionViewCell {
     private func style() {
-        backgroundColor = .systemBackground
+        contentView.backgroundColor = .systemBackground
         contentView.clipsToBounds = true
         contentView.addSubview(appIcon)
         contentView.addSubview(appNameLabel)
@@ -99,6 +94,7 @@ extension AppDetailCollectionViewCell {
         contentView.addSubview(newsLabel)
         contentView.addSubview(infoLabel)
         contentView.addSubview(previewLabel)
+
     }
 
     public func configure(with viewModel: AppDetailViewModel) {

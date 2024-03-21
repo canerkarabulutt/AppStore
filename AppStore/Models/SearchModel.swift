@@ -21,5 +21,6 @@ struct SearchResult: Codable {
     var formattedPrice: String?
     let description: String
     var releaseNotes: String?
-    let trackId: Int
+    var trackId: Int?
 }
+

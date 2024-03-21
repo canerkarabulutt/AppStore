@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class SearchViewCell: UICollectionViewCell {
-    static let cellIdentifier = "SearchView"
+    static let cellIdentifier = "SearchViewCell"
     //MARK: - Properties
     private let appIcon: UIImageView = {
         let imageView = UIImageView()
@@ -22,7 +22,7 @@ class SearchViewCell: UICollectionViewCell {
     private let appNameLabel: UILabel = {
         let label = UILabel()
         label.text = "App Name"
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         label.numberOfLines = 0
         return label
     }()
@@ -135,4 +135,3 @@ extension SearchViewCell {
         self.appScreenImage3.kf.setImage(with: viewModel.screenPage3)
     }
 }
-
